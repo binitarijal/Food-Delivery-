@@ -21,7 +21,19 @@ role:{
     type:String,
     enum:['user','admin'],
     default:'user'
+},
+resetOtp:{
+    type:String
+},
+resetOtpExpiry: {
+    type:Date
+},
+resetPasswordAllowed: {
+  type: Boolean,
+  default: false
 }
+
+
 
 })
 
