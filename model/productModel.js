@@ -28,7 +28,6 @@ productQuantity:{
 },
 image:{
     type:String,
-    required:[true,"image needed"]
 }
 },
 {timestamps: true})
