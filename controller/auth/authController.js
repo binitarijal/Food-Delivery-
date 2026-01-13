@@ -63,7 +63,9 @@ exports.loginUser = async (req, res) => {
     );
 
     res.cookie("token", token, { httpOnly: true });
-    res.status(200).json({ message: "Login successful" });
+    res.status(200).json({ message: "Login successful" ,
+      token:token
+    });
   } catch (error) {
     console.error("Login error:", error);
     res.status(500).json({ message: "Internal server error" });
@@ -143,10 +145,15 @@ exports.verifyOtp = async (req, res) => {
 
 exports.resetPassword = async (req, res) => {
   try {
-    const { userEmail, newPassword } = req.body;
+    const { userEmail, newPassword,confirmPassword } = req.body;
 
-    if (!userEmail || !newPassword) {
+    if (!userEmail || !newPassword || !confirmPassword) {
       return res.status(400).json({ message: "All fields are required" });
+    }
+    if(newPassword !== confirmPassword){
+      return res.status(400).json({
+        message:"newpassword and confirm password doesn't match"
+      })
     }
 
     const user = await User.findOne({ userEmail });
