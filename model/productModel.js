@@ -26,7 +26,10 @@ productQuantity:{
     type: Number,
     required:[true,"Quantity is required"]
 },
-
+image:{
+    type:String,
+    required:[true,"image needed"]
+}
 },
 {timestamps: true})
 

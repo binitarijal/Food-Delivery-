@@ -8,6 +8,8 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 connectDB();
+app.use("/uploads", express.static("uploads"));
+
 const authRoutes = require('./routes/auth/authRoutes');
 const productRoutes= require('./routes/product/productRoutes');
 const PORT = process.env.PORT || 3000;
