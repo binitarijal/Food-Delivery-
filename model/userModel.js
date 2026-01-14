@@ -15,6 +15,7 @@ userPhonenumber:{
 userPassword:{
     type:String,
     required:[true,'Password is required'],
+    minlength:10,
 
 },
 role:{
@@ -23,10 +24,12 @@ role:{
     default:'user'
 },
 resetOtp:{
-    type:String
+    type:String,
+    
 },
 resetOtpExpiry: {
-    type:Date
+    type:Date,
+    
 },
 resetPasswordAllowed: {
   type: Boolean,

@@ -12,11 +12,13 @@ app.use("/uploads", express.static("uploads"));
 
 const authRoutes = require('./routes/auth/authRoutes');
 const productRoutes= require('./routes/product/productRoutes');
+const adminuserRoutes=require("./routes/adminuserRoutes")
 const PORT = process.env.PORT || 3000;
 
 
 app.use('/', authRoutes);
 app.use('/',productRoutes);
+app.use("/",adminuserRoutes);
 
 app.listen(PORT, () => {
 console.log(`Server is running on port ${PORT}`);
